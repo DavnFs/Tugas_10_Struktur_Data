@@ -1,7 +1,8 @@
 public class queue2 {
     int ukuran; //untuk mengatur ukuran array
     int[] antrian; //untuk array dengan ukuran tertentu
-    int depan, belakang, jumlahantrian; //pointer dan posisi/jumlah
+    int depan, belakang, jumlahantrian, nasabah; //pointer dan posisi/jumlah
+
 
     //blueprint class queue
     public queue2(int s){
@@ -10,6 +11,7 @@ public class queue2 {
         depan = -1;
         belakang = -1;
         jumlahantrian = 0; //untuk menghitung jumlah antrian
+        nasabah = 0;
     }
 
     //cek apakah antrian kosong
@@ -22,15 +24,17 @@ public class queue2 {
         return(belakang==ukuran -1);
     }
     //Untuk memasukan sebuah antrian
-    public void enqueue(int a){
+    public void enqueue(){
         if (isEmpty() == true){
+            nasabah ++;
             depan ++;
-            antrian[depan] = a;
+            antrian[depan] = nasabah;
             belakang++;
         }
         else if (isEmpty() == false){
+            nasabah ++;
             belakang++;
-            antrian[belakang] = a;
+            antrian[belakang] = nasabah;
         }
         else{
             System.out.println("Antrian Penuh");
@@ -51,7 +55,11 @@ public class queue2 {
         }
         System.out.println("");
     }
-    public void peek(){
+    public void peek_belakang(){
         System.out.println("Antrian Paling belakang Adalah : "+ antrian[belakang]);
+    }
+
+    public void peek_depan(){
+        System.out.println("Antrian Paling depan Adalah : " + antrian[depan]);
     }
 }
