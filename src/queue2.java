@@ -51,4 +51,7 @@ public class queue2 {
         }
         System.out.println("");
     }
+    public void peek(){
+        System.out.println("Antrian Paling belakang Adalah : "+ antrian[belakang]);
+    }
 }

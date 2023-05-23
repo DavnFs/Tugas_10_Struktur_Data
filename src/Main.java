@@ -27,27 +27,35 @@ public class Main {
                 switch (pilihan) {
                     case 1:
                         // Logika untuk Tambah Tabung
+                        q1.enqueue(1);
+                        System.out.println("Telah menambahkan Antrian");
                         break;
                     case 2:
                         // Logika untuk Tambah Ambil
                         break;
                     case 3:
                         // Logika untuk Layani Tabung
+                        q1.dequeue();
                         break;
                     case 4:
                         // Logika untuk Layani Ambil
+                        q2.dequeue();
                         break;
                     case 5:
                         // Logika untuk Lihat Antrian Tabung
+                        q1.tampil();
                         break;
                     case 6:
-                        // Logika untuk Lihat Antrian Ambil
+                        // Logika untuk Lihat Antrian
+                        q2.tampil();
                         break;
                     case 7:
                         // Logika untuk Pilihan 7
+                        q1.peek();
                         break;
                     case 8:
                         // Logika untuk Pilihan 8
+                        q2.peek();
                         break;
                     default:
                         System.out.println("Pilihan tidak valid. Silakan pilih angka 1-8.");
@@ -60,4 +68,5 @@ public class Main {
             }
         }
     }
+
 }
