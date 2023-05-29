@@ -27,56 +27,55 @@ public class Main {
                 System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━");
 
                 switch (pilihan) {
-                    case 0:
+                    case 0 -> {
                         System.out.println("Terima Kasih Telah Menggunakan Program");
                         return; // keluar dari program
-                    case 1:
+                    }
+                    case 1 -> {
                         // Logika untuk Tambah Tabung
                         q1.enqueue();
                         System.out.println("Telah menambahkan Antrian");
                         mn.menu_utama();
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         // Logika untuk Tambah Ambil
                         q2.enqueue();
                         System.out.println("Telah Menambahkan Antrian");
                         mn.menu_utama();
-                        break;
-                    case 3:
+                    }
+                    case 3 -> {
                         // Logika untuk Layani Tabung
                         q1.dequeue();
                         System.out.println("Telah Menghapus Antrian");
                         mn.menu_utama();
-                        break;
-                    case 4:
+                    }
+                    case 4 -> {
                         // Logika untuk Layani Ambil
                         q2.dequeue();
                         System.out.println("Telah Menghapus Antrian");
                         mn.menu_utama();
-                        break;
-                    case 5:
+                    }
+                    case 5 -> {
                         // Logika untuk Lihat Antrian Tabung
                         q1.tampil();
                         mn.menu_utama();
-                        break;
-                    case 6:
+                    }
+                    case 6 -> {
                         // Logika untuk Lihat Antrian
                         q2.tampil();
                         mn.menu_utama();
-                        break;
-                    case 7:
+                    }
+                    case 7 -> {
                         // Logika untuk Pilihan 7
                         q1.peek_belakang();
                         mn.menu_utama();
-                        break;
-                    case 8:
+                    }
+                    case 8 -> {
                         // Logika untuk Pilihan 8
                         q2.peek_belakang();
                         mn.menu_utama();
-                        break;
-                    default:
-                        System.out.println("Pilihan tidak valid. Silakan pilih angka 1-8.");
-                        break;
+                    }
+                    default -> System.out.println("Pilihan tidak valid. Silakan pilih angka 1-8.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Input salah");
