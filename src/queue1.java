@@ -1,73 +1,91 @@
-public class queue1 {
-    int ukuran; //untuk mengatur ukuran array
-    int[] antrian; //untuk array dengan ukuran tertentu
-    int depan, belakang, jumlahantrian, nasabah; //pointer dan posisi/jumlah
+public class queue1{
+    private int ukuran;
+    private int[] antrian;
+    private int depan, belakang;
+    private int nasabah;
 
-
-    //blueprint class queue
-    public queue1(int s){
-        ukuran = s;
-        antrian = new int [ukuran];
+    public queue1(int a){
+        ukuran = a;
+        antrian= new int[ukuran];
         depan = -1;
         belakang = -1;
-        jumlahantrian = 0; //untuk menghitung jumlah antrian
         nasabah = 0;
     }
-
-    //cek apakah antrian kosong
-    //Bernilai True apabila array kosong
     public boolean isEmpty(){
-        return(depan == -1);
+        return belakang == -1;
     }
-    //Cek apakah antrian penuh, bernilai True jika array penuh
     public boolean isFull(){
-        return(belakang==ukuran -1);
+        return belakang == ukuran - 1;
     }
-    //Untuk memasukan sebuah antrian
+    public void IsItFullEmpty(){
+        if(isEmpty() == true){
+            System.out.println("Antrean Nasabah Tabung Kosong & Tersedia");
+        }
+        else if(isFull() == true){
+            System.out.println("Antrean Nasabah Tabung Penuh");
+        }else if(isFull() == false && isEmpty() == false){
+            System.out.println("Antrean Tersedia");
+        }
+    }
     public void enqueue(){
-        if (isEmpty() == true){
-            nasabah ++;
-            depan ++;
+        if(isEmpty() == true){
+            nasabah++;
+            depan++;
             antrian[depan] = nasabah;
             belakang++;
-        }
-        else if (isEmpty() == false){
-            nasabah ++;
+            System.out.println("Antrean Baru!!!");
+        }else if(isFull() == false){
+            nasabah++;
             belakang++;
             antrian[belakang] = nasabah;
-        }
-        else if (isFull() == true){
-            System.out.println("Antrian penuh");
-        }
-        else{
-            System.out.println("Antrian Penuh");
+            System.out.println("Antrean Baru!!!");
+        }else if(isFull() ==true){
+            System.out.println("Antrean Penuh");
         }
     }
     public int dequeue(){
         int temp = antrian[0];
-        for (int i=0; i <= belakang; i++ ){
-            antrian[i] = antrian [i+1];
+        if(isEmpty() == true){
+            System.out.println("Antrean Kosong");
+            return -1;
+        }else{
+            for(int i = 0; i <belakang; i++){
+                antrian[i] = antrian[i + 1];
+            }
+            belakang--;
         }
-        belakang--;
         return temp;
     }
-    public void tampil(){
-        if (isEmpty() == true){
-            System.out.println("Antrian Kosong");
+    public void tampilBelakang(){
+        System.out.println("Urutan Terakhir Antrean Nasabah Tabung: ");
+        if(isEmpty() == true){
+            System.out.println("Antrean Nasabah Tabung Kosong");
+        }else{
+            int terakhir = antrian[belakang];
+            System.out.println("Antrean Terakhir "+terakhir);
         }
-        else {
-            System.out.println("Daftar Antrian : ");
-            for (int i = 0; i <= belakang; i++) {
-                System.out.println("" + antrian[i]);
-            }
-        }
-        System.out.println("");
     }
-
+    public void tampil(){
+        System.out.println("Daftar Antrean Nasabah Tabung: ");
+        if(isEmpty() == true){
+            System.out.println("Antrean Nasabah Tabung Kosong");
+        }else{
+            System.out.println("+------+");
+            System.out.println("| No.  |");
+            System.out.println("+------+");
+            for (int i = 0; i<= belakang; i++){
+                System.out.printf("| %4d |\n", antrian[i]);                }
+            System.out.println("+------+");
+        }
+    }
     public void peek_belakang(){
         System.out.println("Antrian Paling belakang Adalah : "+ antrian[belakang]);
     }
     public void peek_depan(){
-        System.out.println("Antrian Paling depan Adalah : " + antrian[depan]);
+        if(isEmpty() == true) {
+            System.out.println("Antrean Nasabah Tabung Kosong");
+        }else {
+            System.out.println("Antrian Paling depan Adalah : " + antrian[depan]);
+        }
     }
 }

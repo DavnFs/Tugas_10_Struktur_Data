@@ -10,7 +10,7 @@ public class Main {
         Scanner s = new Scanner(System.in);
 
         System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━");
-        System.out.println("--ATM INGIN KAYA--");
+        System.out.println("--BANK INGIN KAYA--");
         System.out.println("1. Tambah Tabung");
         System.out.println("2. Tambah Ambil");
         System.out.println("3. Layani Tabung");
@@ -47,6 +47,7 @@ public class Main {
                         // Logika untuk Layani Tabung
                         q1.dequeue();
                         System.out.println("Telah Menghapus Antrian");
+                        q1.peek_depan();
                         mn.menu_utama();
                     }
                     case 4 -> {
