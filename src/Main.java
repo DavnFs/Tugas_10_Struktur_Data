@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         queue1 q1 = new queue1(5);
-        queue2 q2 = new queue2(5);
+        queue1 q2 = new queue1(5);
         Menu mn = new Menu();
         Scanner s = new Scanner(System.in);
 
